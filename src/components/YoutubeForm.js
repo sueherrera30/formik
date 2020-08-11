@@ -10,14 +10,23 @@ const YoutubeForm = () => {
       name: '',
       email: '',
       channel: '',
-    }
+    },
+    onSubmit: values => {
+      console.log('form data:', values);
+    },
   })
   // 2. debemos cambiar el valor de la propiedaad incial de canda uno de los campos
+  // value nos dará acceso al form data.
+  // console.log('form values:', formik.values);
 
-  console.log('form values:', formik.values);
+  // manejo de submit,son 2 pasos:
+  //esspecificar evento de submit, que ya nos ayudará a manejarlo formik
+  //2. teenemos que revisar el objeto que estamos pasando,agregamos a formik variable, propiedaad onsubmit
+  // la cual recibirá automaticamente el stado del formulario automaticamente, el cuall recibe a values como aargumento,
+  //usando una arrow fuction.
   return (
     <div className="Youtube-main-container">
-      <form className="YoutubeForm">
+      <form className="YoutubeForm" onSubmit={formik.handleSubmit}>
         <label htmlFor='name'>Name</label>
         {/* usamos la propiedad handleChange que viene de los istanciado en formik */}
         {/* formik traera automaticamente los valores por nosotros. */}
