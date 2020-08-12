@@ -1,7 +1,24 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { JSEncrypt } from 'jsencrypt';
+
 
 const YoutubeForm = () => {
+  const message = 'Hello jaimito';
+  const uri = process.env.PUBLIC_KEY;
+
+//   const messageJson = JSON.stringify({
+//     Message: message,
+// });
+// const encrypt = new jsencrypt.JSEncrypt();
+const encrypt = new JSEncrypt();
+encrypt.setPublicKey(uri);
+// const  encryptedMessageJson = encrypt.encrypt(messageJson);
+const  encryptedMessageJson = encrypt.encrypt(message);
+const wrapperJson = JSON.stringify({ encryptedMessageJson });
+
+console.log('encriptado', wrapperJson);
+
 // nos regresa un objeto que vamos a almacenar en una constante llamadda formik
 // Este contiene las propiedades para manejar el estado de nuesstro form
  //1. pasa props inicial values
