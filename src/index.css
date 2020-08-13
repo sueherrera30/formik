@@ -33,14 +33,24 @@ body {
   justify-content: center;
   align-items: center;
 }
-.YoutubeForm > input {
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error {
+  color: red;
+}
+
+.form-control > input {
   border: none;
   width: 300px;
   height: 30px;
   border-radius: 15px;
   margin: 8px;
 }
-.YoutubeForm > label {
+.form-control > label {
   color: darkcyan;
 }
 .submitButton {
@@ -52,4 +62,11 @@ body {
   margin: 20px;
   border: none;
   color: pink;
+}
+
+.form-control > input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
